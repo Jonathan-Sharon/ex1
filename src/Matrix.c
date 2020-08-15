@@ -82,7 +82,7 @@ ErrorCode matrix_copy(PMatrix* result, CPMatrix source){
 
     //Deep Copy
     for (uint32_t i = 0; i < (*result)->height; i++) {
-        for (uint32_t j = 0; j < (*result)->width; i++) {
+        for (uint32_t j = 0; j < (*result)->width; j++) {
             (*result)->values[i][j] = source->values[i][j];
         }
     }
@@ -148,20 +148,14 @@ ErrorCode matrix_setValue(PMatrix matrix, uint32_t rowIndex, uint32_t colIndex,
         return ERROR_POINTER_NULL;
     }
 
-    //If the row or the col we were given equal to zero, then create that
-    //that specific error 
-    if (rowIndex == 0 || colIndex == 0) {
-        return ERROR_ZERO_ROW_OR_COL;
-    }
-
     //if the row or the col we were given exceeds the size of the matrix,
     //then create the appropriate error.
-    if(rowIndex > matrix->height || colIndex > matrix->width) {
+    if(rowIndex >= matrix->height || colIndex >= matrix->width) {
         return ERROR_EXCEEDED_ROW_OR_COL;
     }
 
     //Else, everything is good, and set the value
-    matrix->values[rowIndex - 1][colIndex - 1] = value;
+    matrix->values[rowIndex][colIndex] = value;
     return ERROR_SUCCESS;
     
 }
@@ -175,20 +169,14 @@ ErrorCode matrix_getValue(CPMatrix matrix, uint32_t rowIndex, uint32_t colIndex,
         return ERROR_POINTER_NULL;
     }
 
-    //If the row or the col we were given equal to zero, then create that
-    //that specific error 
-    if (rowIndex == 0 || colIndex == 0) {
-        return ERROR_ZERO_ROW_OR_COL;
-    }
-
     //if the row or the col we were given exceeds the size of the matrix,
     //then create the appropriate error.
-    if(rowIndex > matrix->height || colIndex > matrix->width) {
+    if(rowIndex >= matrix->height || colIndex >= matrix->width) {
         return ERROR_EXCEEDED_ROW_OR_COL;
     }
 
     //Else, everything is good, and get the value
-    *value = matrix->values[rowIndex - 1][colIndex - 1];
+    *value = matrix->values[rowIndex][colIndex];
     return ERROR_SUCCESS;
 
  }
