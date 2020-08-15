@@ -212,8 +212,8 @@ ErrorCode matrix_add(PMatrix* result, CPMatrix lhs, CPMatrix rhs){
     }
 
     //Add both matrixes
-    for(int i = 0; i < rhs->height; i++) {
-        for(int j = 0; j < rhs->width; j++) {
+    for(uint32_t i = 0; i < rhs->height; i++) {
+        for(uint32_t j = 0; j < rhs->width; j++) {
             double xl = lhs->values[i][j];
             double xr = rhs->values[i][j];
 
@@ -243,9 +243,9 @@ ErrorCode matrix_multiplyMatrices(PMatrix* result, CPMatrix lhs, CPMatrix rhs) {
     }
 
     //multiplication
-    for(int i = 0; i < lhs->height; i++) {
-        for(int j = 0; j < rhs->width; j++) {
-            for (int z = 0; z < lhs->width; z++) {
+    for(uint32_t i = 0; i < lhs->height; i++) {
+        for(uint32_t j = 0; j < rhs->width; j++) {
+            for (uint32_t z = 0; z < lhs->width; z++) {
                 //In matrix multiplication first matrix one row element is multiplied
                 // by second matrix all column elements.
                 double xl = lhs->values[i][z];
