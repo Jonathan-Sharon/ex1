@@ -6,6 +6,7 @@
 typedef enum {
     // DON'T CHANGE THIS VALUE!
     ERROR_SUCCESS = 0,
+    ERROR_POINTER_NULL = 1,
 } ErrorCode;
 
 /**
