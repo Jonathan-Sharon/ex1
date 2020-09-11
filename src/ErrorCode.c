@@ -25,6 +25,9 @@ const char* error_getErrorMessage(const ErrorCode code){
         case ERROR_MATRIXES_SIZES: {
             return "matrices were not able to sum/mult because matrices sizes did not match\n";
         }
+        default: {
+            return "unknown error\n";
+        }
 
     }
 }
