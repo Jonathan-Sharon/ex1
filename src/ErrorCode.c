@@ -13,10 +13,10 @@ const char* error_getErrorMessage(const ErrorCode code){
         case ERROR_NULL_POINTER: {
             return "tried to access or store information inside NULL pointer\n";
         }
-        case ZERO_ROW_OR_COLUMNS: {
+        case ZERO_ROW_OR_COLUMN: {
             return "tried to access/create the 0-th row or column\n";
         }
-        case EXCEEDED_ROW_OR_COLUMNS: {
+        case EXCEEDED_ROW_OR_COLUMN: {
             return "tried to access rows or columns which are not in the matrix\n";
         }
         case ALLOCATION_PROBLEM: {
